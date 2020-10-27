@@ -66,7 +66,7 @@ export class Config {
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: 'Tong19930912*',
+    password: '********',
     database: 'quyun',
     entities: [`${__dirname}/entities/**.entity{.ts,.js}`],
     synchronize: true
