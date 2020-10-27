@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { NoteEntity } from 'src/entities/note.entity';
+import { BearingTypes } from 'src/entities/BearingTypes';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DeleteResult } from 'typeorm';
 import { IPaginationOptions, paginate, Pagination } from 'nestjs-typeorm-paginate';
@@ -7,19 +7,24 @@ import { IPaginationOptions, paginate, Pagination } from 'nestjs-typeorm-paginat
 @Injectable()
 export class NoteService {
   constructor (
-    @InjectRepository(NoteEntity) private readonly noteRepository: Repository<NoteEntity> 
+    @InjectRepository(BearingTypes) 
+    private readonly noteRepository: Repository<BearingTypes> 
   ) { }
 
-  findAll (options: IPaginationOptions): Promise<Pagination<NoteEntity>> {
+  async findAll (options: IPaginationOptions): Promise<Pagination<BearingTypes>> {
     const queryBuilder = this.noteRepository.createQueryBuilder();
-    return paginate<NoteEntity>(queryBuilder, options)
+    return paginate<BearingTypes>(queryBuilder, options)
   }
 
-  findById(id: string | number): Promise<NoteEntity> {
+  async findAll1 (): Promise<BearingTypes[]> {
+    return await this.noteRepository.find()
+  }
+
+  findById(id: string | number): Promise<BearingTypes> {
     return this.noteRepository.findOne(id)
   }
 
-  save (NoteEntity: NoteEntity): Promise<NoteEntity> {
+  save (NoteEntity: BearingTypes): Promise<BearingTypes> {
     return this.noteRepository.save(NoteEntity)
   }
 

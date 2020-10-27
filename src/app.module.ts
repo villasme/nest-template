@@ -1,22 +1,14 @@
-import { UsersModule } from './modules/users/users.module';
-import { AuthModule } from './modules/auth/auth.module';
-/**
- * @file 应用主页面
- */
-
-import { NoteModule } from './modules/note/note.module';
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppService } from './app.service';
 import { Config } from './config';
 import { LoggerMiddleware } from './common/middleware/logger.middleware';
+import { NoteModule } from './note/note.module';
 
 @Module({
   imports: [
-    UsersModule,
-    AuthModule,
-    NoteModule,
-    TypeOrmModule.forRoot(Config.DB)
+    TypeOrmModule.forRoot(Config.DB),
+    NoteModule
   ],
   controllers: [],
   providers: [
