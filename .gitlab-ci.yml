@@ -1,0 +1,10 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  tags:
+    - shell
+  script:
+    - docker build -t nest-demo .
+    - docker run -d --name nest-demo -p 4000:4000  nest-demo
