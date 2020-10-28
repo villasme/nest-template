@@ -6,7 +6,9 @@ import { Config } from './config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  // 处理跨域
+  app.enableCors();
+  
   const options = new DocumentBuilder()
     .setTitle('Test example')
     .setDescription('The Test API description')

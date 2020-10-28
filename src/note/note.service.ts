@@ -3,6 +3,7 @@ import { BearingTypes } from 'src/entities/BearingTypes';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DeleteResult } from 'typeorm';
 import { IPaginationOptions, paginate, Pagination } from 'nestjs-typeorm-paginate';
+import { ApiResponse } from '@nestjs/swagger';
 
 @Injectable()
 export class NoteService {
@@ -16,6 +17,7 @@ export class NoteService {
     return paginate<BearingTypes>(queryBuilder, options)
   }
 
+  @ApiResponse({type: [BearingTypes]})
   async findAll1 (): Promise<BearingTypes[]> {
     return await this.noteRepository.find()
   }
