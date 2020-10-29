@@ -6,6 +6,7 @@ import { Config } from './config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.setGlobalPrefix('api');
   // 处理跨域
   app.enableCors();
   
@@ -18,7 +19,7 @@ async function bootstrap() {
     .addTag('note', 'note-aa')
     .build();
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('swagger-ui', app, document);
+  SwaggerModule.setup('/api/swagger-ui', app, document);
   await app.listen(Config.Port);
 }
 bootstrap();
