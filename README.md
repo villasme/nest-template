@@ -38,6 +38,8 @@ $ npm run test:cov
 ## 集成
 
 * swagger v3
+  http://localhost:4000/api/swagger-ui
+  http://localhost:4000/api/swagger-ui-json
 * @nest/typeorm  支持mysql, sqlit3等
 * nestjs-typeorm-paginate 分页
 * 中间件 middleware
