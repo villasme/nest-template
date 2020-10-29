@@ -2,7 +2,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm'
 import * as path from 'path'
 
 export class Config {
-  public static readonly Port: number = 4000
+  public static readonly Port: number = 5050
 
   /** sqlite-config */
   public static readonly DB: TypeOrmModuleOptions = {
