@@ -41,11 +41,29 @@ $ npm run test:cov
 * @nest/typeorm  支持mysql, sqlit3等
 * nestjs-typeorm-paginate 分页
 * 中间件 middleware
+* 支持 web admin api 分层
+```js
+/** 
+ * src/main.ts
+ * 挂在静态文件目录 
+ * */
+app.useStaticAssets(join(__dirname, '..', 'admin/dist/'), {prefix: '/admin/'})
+/**
+ * src/modules/admin
+ * 设置所有路由代理到静态文件
+ */
+import { ServeStaticModule } from '@nestjs/serve-static'
+ServeStaticModule.forRoot({
+    rootPath: join(__dirname, '..', '..', '..','admin/dist'),
+    renderPath: '/admin/*',
+    exclude: ['/api/*', '/app/*'],
+})
+```
 
 ```js
 /**  src/config */
 export class Config {
-  public static readonly Port: number = 4000
+  public static readonly Port: number = 5050
 
   /** sqlite-config */
   public static readonly DB: TypeOrmModuleOptions = {
@@ -73,3 +91,24 @@ export class Config {
   }
 }
 ```
+## 目录结构说明
+
+├── Dockerfile
+├── README.md
+├── admin                 后台管理系统-使用nuxt打包
+├── dist                  nestjs打包输出目录
+├── nest-cli.json
+├── package-lock.json
+├── package.json
+├── public                公共静态资源目录
+├── scripts
+├── src
+│   └── modules
+|    └── admin            后台管理controller
+|    └── api              api接口controller
+|    └── app              官网controller
+├── test
+├── tsconfig.build.json
+├── tsconfig.json
+└── views                 pug模板目录
+

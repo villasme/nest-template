@@ -1,12 +1,26 @@
+import { join } from 'path';
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { NestExpressApplication } from '@nestjs/platform-express/interfaces/nest-express-application.interface';
+
 import { Config } from './config';
+import { AppModule } from './app.module';
 
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  app.setGlobalPrefix('api');
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  /** 设置模版引擎 */
+  app.useStaticAssets(join(__dirname, '..', 'public'),{
+    prefix: '/static/',   //设置虚拟路径
+  });
+  app.setBaseViewsDir(join(__dirname, '..', 'views')) // 放视图的文件
+  app.setViewEngine('pug');
+  /** 设置模版引擎-end */
+
+  /** 挂载静态文件目录 */
+  app.useStaticAssets(join(__dirname, '..', 'admin/dist/'), {prefix: '/admin/'})
+
+  // app.setGlobalPrefix('api');
   // 处理跨域
   app.enableCors();
   
