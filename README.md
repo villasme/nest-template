@@ -43,6 +43,8 @@ $ npm run test:cov
 * 中间件 middleware
 * 支持 web admin api 分层
 ```js
+// TODO: 分层后不能使用：app.setGlobalPrefix('api');
+
 /** 
  * src/main.ts
  * 挂在静态文件目录 

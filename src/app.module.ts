@@ -9,7 +9,7 @@ import { AppController } from './app.controller';
 
 @Module({
   imports: [
-        AdminModule, 
+    AdminModule, 
     ApiModule,
     HomeModule,
     TypeOrmModule.forRoot(Config.DB),

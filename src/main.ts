@@ -20,7 +20,6 @@ async function bootstrap() {
   /** 挂载静态文件目录 */
   app.useStaticAssets(join(__dirname, '..', 'admin/dist/'), {prefix: '/admin/'})
 
-  // app.setGlobalPrefix('api');
   // 处理跨域
   app.enableCors();
   

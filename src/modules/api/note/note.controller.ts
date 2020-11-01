@@ -1,11 +1,12 @@
-import { Controller, Get, Body, Post, Query, Param } from '@nestjs/common';
+import { Controller, Get, Body, Post, Query, Param, UseGuards, Request } from '@nestjs/common';
 import { NoteService } from './note.service';
 import { BearingTypes } from 'src/entities/BearingTypes';
 import { ApiOperation, ApiTags, ApiCreatedResponse } from '@nestjs/swagger';
 import { Pagination } from 'nestjs-typeorm-paginate';
+import { LocalAuthGuard } from '../auth/guards/local-auth.guard';
 
-@ApiTags('note')
-@Controller('note')
+@ApiTags('api/note')
+@Controller('api/note')
 export class NoteController { 
   constructor(
     private readonly noteService: NoteService
@@ -26,6 +27,7 @@ export class NoteController {
   @ApiCreatedResponse({description: '查找所有1'})
   findAll1(
   ): Promise<BearingTypes[]> {
+    console.log('findAll1')
     return this.noteService.findAll1()
   }
 
@@ -35,9 +37,18 @@ export class NoteController {
     return this.noteService.findById(id)
   }
 
-  @Post()
+  @Post('/create')
   @ApiOperation({summary: '创建'})
   create(@Body() NoteEntity: BearingTypes): Promise<BearingTypes> {
+    console.log('create')
     return this.noteService.save(NoteEntity)
+  }
+
+  @UseGuards(LocalAuthGuard)
+  @Post('/auth/login')
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  async login(@Request() req): Promise<any> {
+    console.log('hahahahh')
+    return req.user;
   }
 }
