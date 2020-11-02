@@ -42,6 +42,8 @@ $ npm run test:cov
 * nestjs-typeorm-paginate 分页
 * 中间件 middleware
 * 支持 web admin api 分层
+* 支持pug
+  - 支持bootstrap4
 ```js
 // TODO: 分层后不能使用：app.setGlobalPrefix('api');
 
@@ -95,6 +97,7 @@ export class Config {
 ```
 ## 目录结构说明
 
+```js
 ├── Dockerfile
 ├── README.md
 ├── admin                 后台管理系统-使用nuxt打包
@@ -113,4 +116,5 @@ export class Config {
 ├── tsconfig.build.json
 ├── tsconfig.json
 └── views                 pug模板目录
+```
 
