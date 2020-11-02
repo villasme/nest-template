@@ -1,8 +1,17 @@
 html(lang="zh")
     head
         meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        //- 
+        meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
         title 页游
-        block script
+        link(rel="stylesheet", href="/static/libray/bootstrap-4.5.3/bootstrap.min.css")
+        block style
     body
         block body
+
+        //- jquery
+        script(src="/static/libray/jquery-3.2.1.js" )
+        //- 最新的 Bootstrap4 核心 JavaScript 文件
+        script(src="/static/libray/bootstrap-4.5.3/bootstrap.min.js" )
+
+        block script
