@@ -1,17 +1,6 @@
-html(lang="zh")
-    head
-        meta(charset="UTF-8")
-        //- 
-        meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-        title 页游
-        link(rel="stylesheet", href="/static/libray/bootstrap-4.5.3/bootstrap.min.css")
-        block style
-    body
-        block body
+//- 第一个布局
+extends /layout/base
 
-        //- jquery
-        script(src="/static/libray/jquery-3.2.1.js" )
-        //- 最新的 Bootstrap4 核心 JavaScript 文件
-        script(src="/static/libray/bootstrap-4.5.3/bootstrap.min.js" )
-
-        block script
+block wrap
+    include /layout/header
+    block body

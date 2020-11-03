@@ -1,17 +1,22 @@
 import { Controller, Get, Render } from '@nestjs/common';
-import { NoAuth } from 'src/common/noAuth';
 
 @Controller()
 export class HomeController {
     @Get()
-    @Render('index')
+    @Render('home/index')
     root(): any {
-        return { message: 'Hello world!' };
+        return { title: 'home' };
     }
-    @NoAuth()
+
     @Get('/home')
     @Render('home/index')
     home(): any {
-        return { message: 'Hello world!' };
+        return { title: 'home' };
+    }
+
+    @Get('/test')
+    @Render('home/test')
+    test(): any {
+        return { title: '测试' };
     }
 }
