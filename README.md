@@ -42,8 +42,8 @@ $ npm run test:cov
 * nestjs-typeorm-paginate 分页
 * 中间件 middleware
 * 支持 web admin api 分层
-* 支持pug
-  - 支持bootstrap4
+* 支持[pug](https://pugjs.org/zh-cn/api/reference.html)
+  - [支持bootstrap4](https://getbootstrap.net/docs/components/navbar/#toggler)
 ```js
 // TODO: 分层后不能使用：app.setGlobalPrefix('api');
 
