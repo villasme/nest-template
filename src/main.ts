@@ -6,7 +6,6 @@ import { NestExpressApplication } from '@nestjs/platform-express/interfaces/nest
 import { Config } from './config';
 import { AppModule } from './app.module';
 
-
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const server = app.getHttpAdapter().getInstance()
@@ -38,6 +37,8 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('/api/swagger-ui', app, document);
+
   await app.listen(Config.Port);
 }
+
 bootstrap();

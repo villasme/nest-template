@@ -18,6 +18,9 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 
+# 打包静态文件 (自动监听webSrc目录)
+$ npm run webpack:w
+
 # 生成entities文件数据表的模型
 $ npm run gen-orm
 ```
@@ -106,6 +109,7 @@ export class Config {
 ├── package-lock.json
 ├── package.json
 ├── public                公共静态资源目录
+│   └── dist              webSrc打包后的目录
 ├── scripts
 ├── src
 │   └── modules
@@ -116,5 +120,6 @@ export class Config {
 ├── tsconfig.build.json
 ├── tsconfig.json
 └── views                 pug模板目录
+└── webSrc                pug中使用的static/dist源码
 ```
 
