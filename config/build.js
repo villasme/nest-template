@@ -37,11 +37,15 @@ function getJsonFiles(jsonPath){
         files.forEach(function (item, index) {
             let fPath = join(path,item);
             let stat = fs.statSync(fPath);
+            const isDr = stat.isDirectory() 
             if(stat.isDirectory() === true) {
+                if (item === 'child') {
+                    return false
+                }
                 findJsonFile(fPath);
             }
             if (stat.isFile() === true) { 
-              jsonFiles.push(fPath);
+                jsonFiles.push(fPath);
             }
         });
     }

@@ -20,7 +20,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "gen-orm": "npx typeorm-model-generator  -d ../db/web -e sqlite -o ./src/entities/  --noConfig true  --ce pascal",
-    "webpack:w": "node ./config/watch"
+    "build:web": "node ./config/watch"
   },
   "dependencies": {
     "@nestjs/common": "^7.0.0",

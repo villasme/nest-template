@@ -18,8 +18,8 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 
-# 打包静态文件 (自动监听webSrc目录)
-$ npm run webpack:w
+# 打包静态文件 (自动监听webSrc目录: TODO: child 文件夹自动忽略不进行监听)
+$ npm run build:web
 
 # 生成entities文件数据表的模型
 $ npm run gen-orm

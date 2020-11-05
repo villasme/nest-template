@@ -1,10 +1,11 @@
 extends /layout/web
+include /utils/mixin
 
-block style
-    link(rel="stylesheet", href="/static/css/home.css")
+block styles
+    +link("/static/dist/css/home.css")
 
-block script
-    script(src="/static/js/home.js")
+block scripts
+    +script("/static/dist/js/home.js")
 
 block body
     .container
@@ -34,7 +35,7 @@ block body
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                <th scope="col">#</th>
+                <th class="home" scope="col">#</th>
                 <th scope="col">First</th>
                 <th scope="col">Last</th>
                 <th scope="col">Handle</th>

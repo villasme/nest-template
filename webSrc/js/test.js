@@ -1,1 +1,1 @@
-alert('我是heihie')
+console.log('我是heihie')
