@@ -30,6 +30,17 @@ module.exports = {
             loader: 'sass-loader' // 将 Sass 编译成 CSS
           }
         ]
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 5000
+            }
+          }
+        ]
       }
     ],
   },
