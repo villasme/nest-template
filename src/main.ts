@@ -18,7 +18,11 @@ async function bootstrap() {
   app.setViewEngine('pug');
   app.setBaseViewsDir(viewsPath) // 放视图的文件
   /** 给pug模板设置绝对路径  eg: /layout/web */
+  /** 再次定义本地变量 */
   server.locals.basedir = viewsPath
+  server.locals.__env = {
+    version: '1.0.0'
+  }
   /** 设置模版引擎-end */
 
   /** 挂载静态文件目录 */
