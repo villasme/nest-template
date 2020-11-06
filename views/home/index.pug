@@ -10,6 +10,7 @@ block scripts
 block body
     .container
         //- 轮播
+        h4 轮播carousel
         .carousel.slide(data-ride="carousel", id="carouselExampleIndicators")
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -30,36 +31,110 @@ block body
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
-        
-        //- 表格
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                <th class="home" scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                </tr>
-            </tbody>
-        </table>
+        h4 alert警告框
+        .alert.alert-primary
+            span 我是主要的一个提示
+            button.close(data-dismiss="alert")
+                span(aria-hidden="true") &times;
+        h4 面包屑breadcrumb
+        nav(aria-label="breadcrumb")
+            ol.breadcrumb
+                li.breadcrumb-item.active HOME
+                li.breadcrumb-item Libray
+        h4 按钮button
+        button.btn.btn-primary(type="button") 主按钮
 
+        h4 卡片.card
+        .card
+            img.card-img-top(src="https://iph.href.lu/500x300")
+            .card-body
+                h5.card-title card title
+                p.card-text ttttttssjkl;jfkajfkzmxc,v,mks;dfka;djfkajdsf
+                a.btn.btn-primary Go somewhere
+
+        h4 下拉菜单
+        .dropdown
+            button.btn.btn-secondary.dropdown-toggle(type="button", data-toggle="dropdown") 下拉啊
+            .dropdown-menu
+                a.dropdown-item(href="#") Action
+                a.dropdown-item(href="#") Action1
+                a.dropdown-item(href="#") Action2
+        h4 折叠
+        a.btn.btn-primary(role="button" href="#collapseDemo1" data-toggle="collapse") a点开展示折叠部分
+        button.btn.btn-primary(role="button" data-target="#collapseDemo1" data-toggle="collapse") button点开展示折叠部分
+        .collapse(id="collapseDemo1")
+            .card.card-body
+                p 你好我是折叠部分
+        
+        h4 表单
+        .form
+            .form-group
+                label Email address
+                input.form-control(type="email" placeholder="Enter email")
+            .form-group
+                label Password
+                input.form-control(type="password" placeholder="Enter password")
+            button.btn.btn-primary(type="submit") Submit
+        h4 输入框组
+        .input-group
+            .input-group-prepend
+                .input-group-text @
+            input.form-control(type="text" placeholder="Username")
+        
+        h4 模态框
+        button.btn.btn-primary(type="button", data-toggle="modal", data-target="#modalExample") 打开模态框
+
+        .modal.fade(id="modalExample")
+            .modal-dialog(role="document")
+                .modal-content
+                    .modal-header
+                        h5 Modal title
+                        button.close(data-dismiss="modal")
+                            span &times;
+                    .modal-body
+                        p Modal body text goes here.
+                    .modal-footer
+                        button.btn.btn-secondary(data-dismiss="modal") Close
+                        button.btn.btn-primary Save changes
+
+
+        h4 滚动条
+        <nav id="navbar-example2" class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                <a class="nav-link" href="#fat">@fat</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#mdo">@mdo</a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#one">one</a>
+                    <a class="dropdown-item" href="#two">two</a>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#three">three</a>
+                </div>
+                </li>
+            </ul>
+        </nav>
+        <div data-spy="scroll" data-target="#navbar-example2" style="height: 200px; overflow: auto; position: relative" data-offset="0">
+            <h4 id="fat">@fat</h4>
+            <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+            <h4 id="mdo">@mdo</h4>
+            <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+            <h4 id="one">one</h4>
+            <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+            <h4 id="two">two</h4>
+            <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+            <h4 id="three">three</h4>
+            <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+        </div>
+
+        h4 分页
+        nav
+            ul.pagination
+                li.page-item
+                    a.page-link 上一页
+                    a.
