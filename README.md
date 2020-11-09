@@ -120,6 +120,6 @@ export class Config {
 ├── tsconfig.build.json
 ├── tsconfig.json
 └── views                 pug模板目录
-└── webSrc                pug中使用的static/dist源码
+└── webapp                pug中使用的static/dist源码
 ```
 

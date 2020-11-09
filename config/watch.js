@@ -3,7 +3,7 @@ const watch = require('watch')
 const join = require('path').join
 const build = require('./build').build
 
-const baseDir = 'webSrc'
+const baseDir = 'webapp'
 const basePath = join(__dirname, '..', baseDir)
 build(baseDir)
 watch.createMonitor(basePath, function (monitor) {
