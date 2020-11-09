@@ -1,5 +1,6 @@
 import { join } from 'path';
 import { NestFactory } from '@nestjs/core';
+import * as compression from 'compression';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { NestExpressApplication } from '@nestjs/platform-express/interfaces/nest-express-application.interface';
 
@@ -9,6 +10,8 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const server = app.getHttpAdapter().getInstance()
+  /** 静态文件压缩 */
+  app.use(compression())
 
   const viewsPath = join(__dirname, '..', 'views')
   /** 设置模版引擎 */
