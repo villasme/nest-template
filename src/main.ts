@@ -6,6 +6,8 @@ import { NestExpressApplication } from '@nestjs/platform-express/interfaces/nest
 
 import { Config } from './config';
 import { AppModule } from './app.module';
+import { HttpExceptionFilter } from './filters/http-exception.filter';
+import { TransformInterceptor } from './interceptor/transform.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -31,6 +33,10 @@ async function bootstrap() {
   /** 挂载静态文件目录 */
   app.useStaticAssets(join(__dirname, '..', 'admin/dist/'), {prefix: '/admin/'})
 
+  /** 拦截错误信息 */
+  app.useGlobalFilters(new HttpExceptionFilter());
+  // 全局注册拦截器
+  app.useGlobalInterceptors(new TransformInterceptor());
   // 处理跨域
   app.enableCors();
   

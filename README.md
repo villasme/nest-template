@@ -98,6 +98,32 @@ export class Config {
   }
 }
 ```
+
+## 新增功能描述
+1. 错误状态统一响应格式 - 使用的过滤器 *** 10001 ***
+```js
+'./src/filters/http-exception.filter.ts'
+// 10001请求从失败
+const errorResponse = {
+    data: {
+      error: message
+    },
+    message: '请求失败',
+    code: 10001,
+    url: request.originalUrl
+  }
+```
+2. 成功状态 拦截器 *** 10000 ***
+```js
+'./src/interceptor/transform.interceptor.ts'
+// 10000请求成功
+const response = {
+  data,
+  code: 10000,
+  message: '请求成功'
+}
+```
+
 ## 目录结构说明
 
 ```js
