@@ -5,8 +5,8 @@ import { ApiOperation, ApiTags, ApiCreatedResponse } from '@nestjs/swagger';
 import { Pagination } from 'nestjs-typeorm-paginate';
 import { LocalAuthGuard } from '../auth/guards/local-auth.guard';
 
-@ApiTags('api/note')
-@Controller('api/note')
+@ApiTags('note')
+@Controller('note')
 export class NoteController { 
   constructor(
     private readonly noteService: NoteService

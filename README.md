@@ -45,10 +45,12 @@ $ npm run test:cov
 * nestjs-typeorm-paginate 分页
 * 中间件 middleware
 * 支持 web admin api 分层
+* 定义局部路由前缀装饰器
+  - setmoduleprefix.decorator.ts 
 * 支持[pug](https://pugjs.org/zh-cn/api/reference.html)
   - [支持bootstrap4](https://getbootstrap.net/docs/components/navbar/#toggler)
 ```js
-// TODO: 分层后不能使用：app.setGlobalPrefix('api');
+// TODO: 分层后不能使用：app.setGlobalPrefix('api'); 使用局部路由前缀装饰器 - src/common/setmoduleprefix.decorator.ts 
 
 /** 
  * src/main.ts
