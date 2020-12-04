@@ -44,10 +44,17 @@ async function bootstrap() {
     .setTitle('Test example')
     .setDescription('The Test API description')
     .setVersion('2.0')
-    .addBearerAuth()
-    /** 添加模块的接口描述 */
-    // .addTag('note', 'note-aa')
-    .build();
+    .addBearerAuth(
+      {
+        description: '*token*',
+        type: 'apiKey',
+        name: 'token',
+        in: 'header'
+      },
+      'JWT',
+    )
+    .addSecurityRequirements('JWT')
+    .build()
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('/api/swagger-ui', app, document);
 

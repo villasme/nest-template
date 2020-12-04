@@ -22,6 +22,7 @@ export const SetModulePrefix = createParamDecorator(
 );
 
 export function setModulePrefix (prefix:string) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   return (target: any) => {
     resolveController(target).forEach(controller => {
       const path = Reflect.getMetadata(PATH_METADATA, controller)

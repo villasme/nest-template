@@ -7,9 +7,10 @@ import { jwtConstants } from '../constants';
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor() {
     super({
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      /** 这里采取http获取token字段 */
+      jwtFromRequest: ExtractJwt.fromHeader('token'),
       ignoreExpiration: false,
-      secretOrKey: jwtConstants.secret,
+      secretOrKey: jwtConstants.secret
     });
   }
 

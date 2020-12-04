@@ -1,9 +1,8 @@
-import { Controller, Get, Body, Post, Query, Param, UseGuards, Request } from '@nestjs/common';
+import { Controller, Get, Body, Post, Query, Param } from '@nestjs/common';
 import { NoteService } from './note.service';
 import { BearingTypes } from 'src/entities/BearingTypes';
 import { ApiOperation, ApiTags, ApiCreatedResponse } from '@nestjs/swagger';
 import { Pagination } from 'nestjs-typeorm-paginate';
-import { LocalAuthGuard } from '../auth/guards/local-auth.guard';
 
 @ApiTags('note')
 @Controller('note')
@@ -44,11 +43,4 @@ export class NoteController {
     return this.noteService.save(NoteEntity)
   }
 
-  @UseGuards(LocalAuthGuard)
-  @Post('/auth/login')
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  async login(@Request() req): Promise<any> {
-    console.log('hahahahh')
-    return req.user;
-  }
 }

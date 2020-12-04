@@ -1,21 +1,17 @@
-import { ApiController } from './api.controller';
 import { Module } from '@nestjs/common';
 import { NoteModule } from './note/note.module';
-import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 import { setModulePrefix } from 'src/common/setmoduleprefix.decorator';
-
-
-
 @setModulePrefix('api')
 @Module({
     imports: [
-        AuthModule,
         UsersModule,
-        NoteModule
+        AuthModule,
+        NoteModule,
     ],
-    controllers: [
-        ApiController, ],
+    controllers: [],
     providers: [],
 })
+
 export class ApiModule {}

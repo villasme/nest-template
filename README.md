@@ -49,6 +49,7 @@ $ npm run test:cov
   - setmoduleprefix.decorator.ts 
 * 支持[pug](https://pugjs.org/zh-cn/api/reference.html)
   - [支持bootstrap4](https://getbootstrap.net/docs/components/navbar/#toggler)
+* passport-jwt 校验token
 ```js
 // TODO: 分层后不能使用：app.setGlobalPrefix('api'); 使用局部路由前缀装饰器 - src/common/setmoduleprefix.decorator.ts 
 

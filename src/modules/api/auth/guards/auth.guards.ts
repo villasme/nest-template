@@ -15,6 +15,10 @@ export class RoleAuthGuard implements CanActivate {
         const guard = RoleAuthGuard.getAuthGuard(noAuth)
         const request: Request = context.switchToHttp().getRequest()
         const rolePath = /^(\/api)/
+        console.log(noAuth)
+        if (noAuth) {
+            return true
+        }
         /** /api做权限 */
         if (rolePath.test(request.originalUrl)) {
             return guard.canActivate(context);
